@@ -8,6 +8,8 @@ import {FormsModule} from '@angular/forms'
 import { from } from 'rxjs';
 import { RegistroComponent } from './registro/registro.component';
 import { SueldosComponent } from './sueldos/sueldos.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
