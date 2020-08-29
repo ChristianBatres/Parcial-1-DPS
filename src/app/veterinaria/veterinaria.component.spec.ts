@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ComboBoxComponent } from './combo-box.component';
+import { VeterinariaComponent } from './veterinaria.component';
 
-describe('ComboBoxComponent', () => {
-  let component: ComboBoxComponent;
-  let fixture: ComponentFixture<ComboBoxComponent>;
+describe('VeterinariaComponent', () => {
+  let component: VeterinariaComponent;
+  let fixture: ComponentFixture<VeterinariaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ComboBoxComponent ]
+      declarations: [ VeterinariaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ComboBoxComponent);
+    fixture = TestBed.createComponent(VeterinariaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
