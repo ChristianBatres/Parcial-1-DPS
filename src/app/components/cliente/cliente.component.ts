@@ -9,6 +9,11 @@ import { Cliente } from '../../models/cliente';
 import { ToastrService } from 'ngx-toastr';
 import { count } from 'console';
 import { element } from 'protractor';
+//PDF
+import {html2pdf} from 'html2pdf.js';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-cliente',
@@ -16,6 +21,7 @@ import { element } from 'protractor';
   styleUrls: ['./cliente.component.css']
 })
 export class ClienteComponent implements OnInit {
+
 
   contador:number;
   duis=[]
@@ -94,7 +100,7 @@ export class ClienteComponent implements OnInit {
     else{
       this.clienteService.updateCliente(clienteForm.value);
     }
-    this.resetForm(clienteForm);
+    //this.resetForm(clienteForm);
     this.toastr.success('Operacion Exitosa', 'Registrado!');
   }
 
@@ -105,4 +111,83 @@ export class ClienteComponent implements OnInit {
     this.clienteService.selectedCliente = new Cliente();
   }
 
+  generatePdf(action = 'open') {
+    const documentDefinition = this.getDocumentDefinition();
+    switch (action) {
+      case 'open': pdfMake.createPdf(documentDefinition).open(); break;
+      default: pdfMake.createPdf(documentDefinition).open(); break;
+    }
+  }
+  getDocumentDefinition() {
+    sessionStorage.setItem('cliente', JSON.stringify(this.clienteService.getClientes));
+    return {
+      content: [
+        {
+          text: 'Factura Cliente Veterinaria',
+          bold: true,
+          fontSize: 20,
+          alignment: 'center',
+          margin: [0, 0, 0, 20],
+          color: 'black'
+        },
+        {
+          columns: [
+            [{
+              text: 'Nombre del Cliente:',
+              style: 'name',
+              color: 'blue'
+            },
+            {
+              text: this.clienteService.selectedCliente.nombre,
+              style: 'name'
+            },
+            {
+              text: 'Nombre de la mascota:',
+              style: 'name',
+              color: 'blue'
+            },
+            {
+              text: this.clienteService.selectedCliente.mascota,
+              style: 'name'
+            },
+            {
+              text: 'Tratamiento de la mascota:',
+              style: 'name',
+              color: 'blue'
+            },
+            {
+              text: this.clienteService.selectedCliente.tratamiento,
+              style: 'name'
+            },
+            {
+              text: 'Costo:' ,
+              style: 'name',
+              color: 'black',
+              alignment: 'right'
+            },
+            {
+              text:this.clienteService.selectedCliente.costo+'$',
+              color: 'green',
+              style: 'name',
+              alignment: 'right'
+            }
+            
+            ],
+            [
+              
+            ]
+          ]
+        
+
+        }],
+        styles: {
+          name: {
+            fontSize: 16,
+            bold: true
+          }
+        }
+
+    };
+
+}
 }
