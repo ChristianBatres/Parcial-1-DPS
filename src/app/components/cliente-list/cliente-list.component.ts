@@ -19,6 +19,11 @@ export class ClienteListComponent implements OnInit {
     private clienteService: ClienteService,
     private toastr: ToastrService
   ) { }
+
+  //Filtros pipes
+  filterCliente = '';
+
+  
   // Arreglo para almacenar la informacion que se obtenga de la base de datos de firebase
   clienteList: Cliente[];
   ngOnInit() {
