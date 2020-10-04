@@ -30,6 +30,7 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { from } from 'rxjs';
 import { VeterinariaComponent } from './veterinaria/veterinaria.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { VeterinariaComponent } from './veterinaria/veterinaria.component';
     VerifyEmailComponent,
     ClientesComponent,
     ClienteListComponent,
-    ClienteComponent
+    ClienteComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,16 @@
 
+<div class="row">
+  <h3>Filtrar</h3>
+  <div class="col">
+    <div class="form-group">
+      <input type="text" name="filterCliente" id="" class="form-control" placeholder="Buscar" [(ngModel)]="filterCliente" >
+    </div>
+  </div>
+  
+</div>
+
 <table id="tclientes" class="table  table-hover"  >
+
     <thead style="background-color: #a7e0aa;">
       <tr>
         <th scope="col">ID</th>
@@ -12,7 +23,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let cliente of clienteList">
+      <tr *ngFor="let cliente of clienteList | filter:filterCliente">
         <td>{{cliente.$key}}</td>              
                     <td>{{cliente.nombre}}</td>
                     <td>{{cliente.dui}}</td>
