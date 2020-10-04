@@ -8,6 +8,11 @@ import { ClienteService } from '../../services/cliente.service';
 // toastr
 import { ToastrService } from 'ngx-toastr';
 
+//PDF
+import {html2pdf} from 'html2pdf.js';
+import {jsPDF} from 'jspdf';
+
+
 @Component({
   selector: 'app-cliente-list',
   templateUrl: './cliente-list.component.html',
@@ -33,6 +38,7 @@ export class ClienteListComponent implements OnInit {
       });
   }
 
+  
   onEdit(cliente: Cliente) {
     this.clienteService.selectedCliente = Object.assign({}, cliente);
   }
