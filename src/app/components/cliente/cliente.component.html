@@ -37,11 +37,9 @@
                 <button class="btn btn-secondary" type="reset" (click)="resetForm(clienteForm)">
                     <i class="fas fa-sync-alt"></i> Limpiar
                 </button>
-                <button (click)="clienteForm.valid ? generatePdf('open') : ''"
-                class="btn btn-primary d-flex align-items-center justify-content-center">
-                <i class="material-icons">
-                  picture_as_pdf
-                </i> <span>Open PDF</span></button>
+                <button class="btn btn-secondary" (click)="clienteForm.valid ? generatePdf('open') : ''">
+                  <i class="far	fa-clipboard">
+                </i> <span>Generar Factura</span></button>
             </div>
                            
         </form>
