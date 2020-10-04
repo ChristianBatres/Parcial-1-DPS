@@ -2,7 +2,7 @@
 
 
         <!-- Cuando el evento onSubmit , suceda se va pasar todo el formulario 'productForm' -->
-        <form #clienteForm="ngForm" (ngSubmit)="onSubmit(clienteForm)">
+        <form id="cform" #clienteForm="ngForm" (ngSubmit)="onSubmit(clienteForm)">
           <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="clienteService.selectedCliente.$key">
           <div class="col">
                 <input type="text"  name="nombre" #name="ngModel" class="form-control" [(ngModel)]="clienteService.selectedCliente.nombre"  placeholder="Nombre">
@@ -37,6 +37,9 @@
                 <button class="btn btn-secondary" type="reset" (click)="resetForm(clienteForm)">
                     <i class="fas fa-sync-alt"></i> Limpiar
                 </button>
+                <button class="btn btn-secondary" (click)="clienteForm.valid ? generatePdf('open') : ''">
+                  <i class="far	fa-clipboard">
+                </i> <span>Generar Factura</span></button>
             </div>
                            
         </form>
