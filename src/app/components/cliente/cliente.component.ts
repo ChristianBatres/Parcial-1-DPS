@@ -45,24 +45,7 @@ export class ClienteComponent implements OnInit {
     if (clienteForm.value.$key == null){
 
       
-     this.clienteService.getClientes()
-      .snapshotChanges().subscribe((res) => {
-        var i = 0 ;
-        this.c = res.length;
-        res.forEach(element => {
-          let x = element.payload.toJSON();
-          x["dui"] = element.key;
-           
-              if(x ==clienteForm.value.dui) {
-                i++ ;
-                console.log(i);
-              } 
-        
-            });
-        //use you variable here
-        console.log(i);
-        
-      });
+     
      
 
       for (let i = 0; i < this.duis.length; i++) {
