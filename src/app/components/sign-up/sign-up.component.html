@@ -1,17 +1,17 @@
-<p>sign-up works!</p>
-
+<p></p>
+<div class="container">
 <div class="displayTable">
     <div class="displayTableCell">
   
       <div class="authBlock">
-        <h3>Sign Up</h3>
+        <h3>Crear Cuenta</h3>
   
         <div class="formGroup">
-          <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
+          <input type="email" class="formControl" placeholder="Email" #userEmail required>
         </div>
   
         <div class="formGroup">
-          <input type="password" class="formControl" placeholder="Password" #userPwd required>
+          <input type="password" class="formControl" placeholder="Contraseña" #userPwd required>
         </div>
   
         <div class="formGroup">
@@ -26,22 +26,14 @@
         <div class="formGroup">
           <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
             <i class="fab fa-google-plus-g"></i>
-            Continue with Google
+            Iniciar Sesion con Google
           </button>
         </div>
-  
-        <!-- Continue with Facebook -->
-        <div class="formGroup">
-          <button type="button" class="btn facebookBtn" (click)="authService.FacebookAuth()">
-            <i class="fab fa-facebook"></i>
-            Continue with Facebook
-          </button>
-        </div>
-      </div>
   
       <div class="redirectToLogin">
-        <span>Already have an account? <span class="redirect" routerLink="/sign-in">Log In</span></span>
+        <span>Ya tienes cuenta? <span class="redirect" routerLink="/sign-in">Inicia Sesion</span></span>
       </div>
     </div>
   
   </div>
+</div>
